@@ -32,6 +32,7 @@ const LoginPage = ({ navigation }) => {
           handleOnChangeText={(text) => setEmail(text.toLowerCase())}
           handleValue={email}
           handlePlaceholder="Enter Your Email"
+          keyboardType="email-address"
         />
 
         <CustomTextInput

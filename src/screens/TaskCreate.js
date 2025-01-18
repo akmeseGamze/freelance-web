@@ -32,20 +32,17 @@ const TaskCreate = () => {
 
       setIsLoading(true);
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/create",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            title: title,
-            description: description,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task/create", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          title: title,
+          description: description,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         setIsLoading(false);

@@ -12,6 +12,7 @@ import {
   clearTasksDataInProgress,
   clearTasksDataTodo,
 } from "../redux/tasksSlice";
+import config from "../constants/config";
 
 const TaskShow = (props) => {
   const navigation = useNavigation();
@@ -28,19 +29,16 @@ const TaskShow = (props) => {
         return;
       }
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            id: id,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          id: id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         return;
@@ -67,19 +65,16 @@ const TaskShow = (props) => {
 
       setIsLoading(true);
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/delete",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            id: id,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task/delete", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          id: id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         setIsLoading(false);
@@ -111,7 +106,7 @@ const TaskShow = (props) => {
         setIsLoading(true);
 
         const res = await axios(
-          "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/update/state",
+          config.api + "/api/v1/freelancer/task/update/state",
           {
             method: "POST",
             data: JSON.stringify({

@@ -11,6 +11,7 @@ import {
   clearTasksDataInProgress,
   clearTasksDataTodo,
 } from "../redux/tasksSlice";
+import config from "../constants/config";
 
 const Timer = ({ task }) => {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const Timer = ({ task }) => {
       }
 
       const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/counter/start",
+        config.api + "/api/v1/freelancer/task/counter/start",
         {
           method: "POST",
           data: JSON.stringify({
@@ -102,7 +103,7 @@ const Timer = ({ task }) => {
       }
 
       const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/counter/stop",
+        config.api + "/api/v1/freelancer/task/counter/stop",
         {
           method: "POST",
           data: JSON.stringify({

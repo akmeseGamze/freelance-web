@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import config from "../constants/config";
 
 export const clearTasksDataTodo = createAsyncThunk(
   "freelancer/tasks/clear/todo",
@@ -45,19 +46,16 @@ export const fetchTaskDataTodo = createAsyncThunk(
         throw new Error("Error");
       }
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/list",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            state: "todo",
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task/list", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          state: "todo",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");
@@ -90,19 +88,16 @@ export const fetchTaskDataDone = createAsyncThunk(
         throw new Error("Error");
       }
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/list",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            state: "done",
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task/list", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          state: "done",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");
@@ -135,19 +130,16 @@ export const fetchTaskDataInProgress = createAsyncThunk(
         throw new Error("Error");
       }
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/task/list",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-            state: "in_progress",
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/task/list", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+          state: "in_progress",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");

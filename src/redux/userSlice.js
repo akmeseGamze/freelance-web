@@ -1,25 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import config from "../constants/config";
 
 export const login = createAsyncThunk(
   "freelancer/login",
   async ({ email, password }) => {
-    
     try {
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/auth/freelancer/login",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/auth/freelancer/login", {
+        method: "POST",
+        data: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");
@@ -58,18 +55,15 @@ export const autoLogin = createAsyncThunk("freelancer/auto-login", async () => {
       throw new Error("Error");
     }
 
-    const res = await axios(
-      "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/auth/freelancer/auto-login",
-      {
-        method: "POST",
-        data: JSON.stringify({
-          authentication_token: token,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const res = await axios(config.api + "/api/v1/auth/freelancer/auto-login", {
+      method: "POST",
+      data: JSON.stringify({
+        authentication_token: token,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     if (res.status != 200) {
       throw new Error("Error");
@@ -120,24 +114,21 @@ export const register = createAsyncThunk(
     phone_number,
   }) => {
     try {
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/auth/freelancer/register",
-        {
-          method: "post",
-          data: JSON.stringify({
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            password: password,
-            about: about,
-            role: role,
-            phone_number: phone_number,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/auth/freelancer/register", {
+        method: "post",
+        data: JSON.stringify({
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          password: password,
+          about: about,
+          role: role,
+          phone_number: phone_number,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");

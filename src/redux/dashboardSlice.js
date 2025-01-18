@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import config from "../constants/config";
 
 export const clearDashboardData = createAsyncThunk(
   "freelancer/dashboard/clear",
@@ -23,18 +24,15 @@ export const fetchDashboardData = createAsyncThunk(
         throw new Error("Error");
       }
 
-      const res = await axios(
-        "https://bug-free-chainsaw-rq45p4rx9g5h5rjj-3000.app.github.dev/api/v1/freelancer/dashboard",
-        {
-          method: "POST",
-          data: JSON.stringify({
-            authentication_token: token,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios(config.api + "/api/v1/freelancer/dashboard", {
+        method: "POST",
+        data: JSON.stringify({
+          authentication_token: token,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status != 200) {
         throw new Error("Error");

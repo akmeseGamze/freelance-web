@@ -8,6 +8,7 @@ const CustomTextInput = ({
   handleValue,
   handlePlaceholder,
   rootStyle,
+  keyboardType,
 }) => {
   return (
     <View style={[styles.inputContainer, rootStyle]}>
@@ -18,6 +19,7 @@ const CustomTextInput = ({
         style={styles.textInputStyle}
         onChangeText={handleOnChangeText}
         value={handleValue}
+        keyboardType={keyboardType}
       />
     </View>
   );

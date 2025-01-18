@@ -127,6 +127,7 @@ const SignUpPage = ({ navigation }) => {
                 handleOnChangeText={setPhoneNumber}
                 handleValue={phoneNumber}
                 handlePlaceholder="Enter Your Phone Number"
+                keyboardType="number-pad"
               />
 
               <CustomTextInput
@@ -135,6 +136,7 @@ const SignUpPage = ({ navigation }) => {
                 handleOnChangeText={setEmail}
                 handleValue={email}
                 handlePlaceholder="Enter Your Email"
+                keyboardType="email-address"
               />
 
               <CustomTextInput
