@@ -19,6 +19,11 @@ const SignUpPage = ({ navigation }) => {
 
   const { isLoading, signUpError } = useSelector((state) => state.user);
 
+  const handlePhoneNumberChange = (text) => {
+    const cleanedText = text.replace(/[^0-9]/g, "");
+    setPhoneNumber(cleanedText);
+  };
+
   const handleRegister = () => {
     dispatch(
       register({
@@ -65,7 +70,7 @@ const SignUpPage = ({ navigation }) => {
           <View style={styles.main}>
             <View style={styles.textInputContainer}>
               <CustomTextInput
-                title="Fisrt Name"
+                title="First Name"
                 isSecureText={false}
                 handleOnChangeText={setFirstName}
                 handleValue={firstName}
@@ -124,7 +129,7 @@ const SignUpPage = ({ navigation }) => {
               <CustomTextInput
                 title="Phone Number"
                 isSecureText={false}
-                handleOnChangeText={setPhoneNumber}
+                handleOnChangeText={handlePhoneNumberChange}
                 handleValue={phoneNumber}
                 handlePlaceholder="Enter Your Phone Number"
                 keyboardType="number-pad"
