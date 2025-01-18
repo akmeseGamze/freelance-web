@@ -13,6 +13,9 @@ install dependencies
 ```
 npm ci
 ```
+
+Configure /src/constants/config.js
+
 Start Development (Web)
 ```
 npm run web
