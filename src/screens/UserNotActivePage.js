@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Loading, SolidButton } from "../components";
+import { Loading } from "../components";
 import { logout } from "../redux/userSlice";
 import colors from "../constants/color";
+import { SolidButton } from "../components/button";
 
 const UserNotActivePage = () => {
   const dispatch = useDispatch();

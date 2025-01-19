@@ -1,18 +1,11 @@
 import { StyleSheet, Text, Pressable } from "react-native";
 import React from "react";
-import colors from "../constants/color";
+import colors from "../../constants/color";
 
-const SolidButton = ({
-  buttonText,
-  handleOnPress,
-  rootStyle,
-  textStyle,
-  disabled = false,
-}) => {
+const GhostButton = ({ buttonText, handleOnPress, textStyle, rootStyle }) => {
   return (
     <Pressable
-      disabled={disabled}
-      onPress={handleOnPress ? () => handleOnPress() : null}
+      onPress={() => handleOnPress()}
       style={[styles.button, rootStyle]}
     >
       <Text style={[styles.buttonText, textStyle]}>{buttonText}</Text>
@@ -20,19 +13,17 @@ const SolidButton = ({
   );
 };
 
-export default SolidButton;
+export default GhostButton;
 
 const styles = StyleSheet.create({
   button: {
-    width: "100%",
     height: 50,
-    borderRadius: 1000,
     alignItems: "center",
     justifyContent: "center",
   },
 
   buttonText: {
     fontWeight: "bold",
-    color: "white",
+    color: colors.baseText,
   },
 });

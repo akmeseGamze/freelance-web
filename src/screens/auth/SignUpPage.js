@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import React, { useCallback, useState } from "react";
-import { CustomTextInput, SolidButton, Loading } from "../../components";
+import { Loading } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/userSlice";
 import colors from "../../constants/color";
+import { CustomTextInput } from "../../components/input";
+import { SolidButton } from "../../components/button";
 
 const SignUpPage = ({ navigation }) => {
   const [page, setPage] = useState(0);

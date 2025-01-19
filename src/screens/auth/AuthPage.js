@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
-import { Loading, SolidButton } from "../../components";
+import { Loading, Divider } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { autoLogin } from "../../redux/userSlice";
-import GhostButton from "../../components/GhostButton";
-import Divider from "../../components/Divider";
 import colors from "../../constants/color";
+import { SolidButton, GhostButton } from "../../components/button";
 
 const AuthPage = ({ navigation }) => {
   const { isLoading } = useSelector((state) => state.user);
@@ -61,7 +60,6 @@ const AuthPage = ({ navigation }) => {
             }}
             buttonText="Terms Of Use"
             widthInPercentage={30}
-            handleOnPress={() => navigation.navigate("Signup")}
             buttonColor="gray"
             pressedButtonColor="lightgray"
           />
@@ -72,7 +70,6 @@ const AuthPage = ({ navigation }) => {
             }}
             buttonText="Rrivacy Policy"
             widthInPercentage={30}
-            handleOnPress={() => navigation.navigate("Signup")}
             buttonColor="gray"
             pressedButtonColor="lightgray"
           />

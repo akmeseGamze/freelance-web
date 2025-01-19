@@ -1,13 +1,14 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
-import { HomePage, ProfilePage } from "../screens";
 import TaskPage from "../screens/TaskPage";
 import { Pressable } from "react-native";
 import colors from "../constants/color";
 import { View } from "react-native-web";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/userSlice";
+import HomePage from "../screens/HomePage";
+import ProfilePage from "../screens/ProfilePage";
 const Tab = createBottomTabNavigator();
 
 const RootStack = () => {

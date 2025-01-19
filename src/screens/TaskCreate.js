@@ -1,18 +1,20 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, StyleSheet } from "react-native";
-import { CustomTextInput, Loading } from "../components";
-import { SolidButton } from "../components";
+import { Loading } from "../components";
+import { CustomTextInput } from "../components/input";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import colors from "../constants/color";
 import { useDispatch } from "react-redux";
+import { SolidButton } from "../components/button";
 import { clearDashboardData } from "../redux/dashboardSlice";
 import {
   clearTasksDataDone,
   clearTasksDataInProgress,
   clearTasksDataTodo,
 } from "../redux/tasksSlice";
+import config from "../constants/config";
 
 const TaskCreate = () => {
   const navigation = useNavigation();

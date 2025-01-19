@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
-import { Loading, CustomTextInput, SolidButton } from "../../components";
+import { Loading, Divider } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { login, autoLogin } from "../../redux/userSlice";
-import GhostButton from "../../components/GhostButton";
-import Divider from "../../components/Divider";
 import colors from "../../constants/color";
+import { SolidButton, GhostButton } from "../../components/button";
+import { CustomTextInput } from "../../components/input";
 
 const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState("");

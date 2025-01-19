@@ -1,9 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import colors from "../constants/color";
-import SolidButton from "./SolidButton";
+import SolidButton from "./button/SolidButton";
 import { useDispatch } from "react-redux";
 import { clearDashboardData } from "../redux/dashboardSlice";
 import {

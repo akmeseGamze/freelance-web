@@ -1,6 +1,6 @@
 import Loading from "./Loading";
-import CustomTextInput from "./CustomTextInput";
-import SolidButton from "./SolidButton";
 import Timer from "./Timer";
+import TaskItem from "./TaskItem";
+import Divider from "./Divider";
 
-export { Loading, CustomTextInput, SolidButton, Timer };
+export { Loading, Timer, TaskItem, Divider };

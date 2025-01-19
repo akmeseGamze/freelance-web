@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import React, { useEffect } from "react";
-import { Loading, SolidButton } from "../components";
-import TaskItem from "../components/TaskItem";
+import { Loading, TaskItem } from "../components";
 import { useNavigation } from "@react-navigation/native";
 import colors from "../constants/color";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "../redux/dashboardSlice";
+import { SolidButton } from "../components/button";
 
 const HomePage = () => {
   const navigation = useNavigation();
